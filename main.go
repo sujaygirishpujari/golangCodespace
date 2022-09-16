@@ -3,11 +3,9 @@ package main
 import (
 	"fmt"
 	"strings"
+	"test-app/helper"
 )
 
-func add(x, y int) int {
-	return x + y
-}
 func stringOperation() {
 	var i int = 0
 
@@ -44,7 +42,7 @@ func printFirstName(fullnames []string) {
 
 func testBasics1() {
 
-	fmt.Printf("Addition of 5 + 7 = %v", add(5, 7))
+	fmt.Printf("Addition of 5 + 7 = %v", helper.Add(5, 7))
 
 	//=======
 	var conferenceName = "Go Conference"
@@ -97,6 +95,6 @@ func testBasics1() {
 }
 
 func main() {
-	//testBasics1()
-	stringOperation()
+	testBasics1()
+	//stringOperation()
 }
