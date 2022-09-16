@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"strings"
 	"test-app/helper"
 )
@@ -94,7 +95,30 @@ func testBasics1() {
 
 }
 
+func webHelloWorld() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello, you've requested: %s\n", r.URL.Path)
+	})
+
+	http.ListenAndServe(":80", nil)
+}
+
+func mapFunction() {
+
+	// create a map for user - this only defines type
+	user := make(map[string]string)
+
+	user["FirstName"] = "Sujay"
+	user["LasttName"] = "Pujari"
+
+	fmt.Print(user)
+
+}
+
 func main() {
-	testBasics1()
+	//testBasics1()
 	//stringOperation()
+
+	//webHelloWorld()
+	mapFunction()
 }
